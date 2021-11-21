@@ -5,11 +5,10 @@ import com.company.ui.UserInterface;
 
 public class Controller {
 
-    UserInterface ui = new UserInterface();
+     private UserInterface ui = new UserInterface();
+     private boolean running = true;
 
-    public void Start(){
-        boolean running = true;
-
+    public void start(){
         while(running){
             ui.startMenu();
             int input = ui.intInput();
@@ -21,11 +20,16 @@ public class Controller {
                 case 4 -> scoreBoard(); //Comp. swimmer's best results and dates.
                 case 5 -> compSwimmingSchedule(); //place, time and registration for competitions.
                 case 6 -> swimmerTierList(); //top 5 swimmers in every category.
+                case 0 -> exit();
             }
 
         }
 
 
+    }
+
+    private void exit() {
+        running = false;
     }
 
     //TODO: find out where methods should be placed (not all belong in controller)
