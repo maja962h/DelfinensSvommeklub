@@ -9,6 +9,7 @@ public class Controller {
      private boolean running = true;
 
     public void start(){
+        ui.printWelcomeMessage();
         while(running){
             ui.startMenu();
             int input = ui.intInput();

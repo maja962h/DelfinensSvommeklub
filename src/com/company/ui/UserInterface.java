@@ -22,6 +22,13 @@ public class UserInterface {
         System.out.println(message);
     }
 
+    public void printWelcomeMessage(){
+        //TODO: find dolphin code drawing thingy XD
+        printMessage("""
+                Welcome to the Dolphin!
+                """);
+    }
+
     // TODO: formulate versatile error message.
     public void printError(){
         System.out.println();
