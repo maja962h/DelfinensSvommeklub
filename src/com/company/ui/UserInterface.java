@@ -6,7 +6,14 @@ public class UserInterface {
 
     //TODO: make start menu.
     public void startMenu(){
-        System.out.println("""
+        printMessage("""
+                Type (1) to create a member.
+                Type (2) to get the list of members.
+                Type (3) to check which members haven't paid their fees.
+                Type (4) to see the swimmer's best results and dates.
+                Type (5) to register an event, time and location for the swimmers that have participated.
+                Type (6) to see the top 5 swimmers in each category.
+                Type (0) to exit the program.
                 """);
     }
 
