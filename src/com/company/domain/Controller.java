@@ -34,22 +34,22 @@ public class Controller {
 
     //TODO: find out where methods should be placed (not all belong in controller)
 
-    private void createMember() {
+    public void createMember() {
     }
 
-    private void showMemberList() {
+    public void showMemberList() {
     }
 
-    private void checkDelinquentStatus() {
+    public void checkDelinquentStatus() {
     }
 
-    private void scoreBoard() {
+    public void scoreBoard() {
     }
 
-    private void compSwimmingSchedule() {
+    public void compSwimmingSchedule() {
     }
 
-    private void swimmerTierList() {
+    public void swimmerTierList() {
     }
 
 
