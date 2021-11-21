@@ -1,4 +1,5 @@
 package com.company.ui;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -36,11 +37,12 @@ public class UserInterface {
 
 
     public String stringInput(){
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     public int intInput(){
         return scanner.nextInt();
     }
+
 
 }

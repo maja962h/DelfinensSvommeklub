@@ -1,11 +1,14 @@
 package com.company.domain;
 
 
+import com.company.data.Database;
+import com.company.data.FileHandler;
 import com.company.ui.UserInterface;
 
 public class Controller {
 
      private UserInterface ui = new UserInterface();
+     private FileHandler fh = new FileHandler();
      private boolean running = true;
 
     public void start(){
@@ -35,7 +38,27 @@ public class Controller {
 
     //TODO: find out where methods should be placed (not all belong in controller)
 
+    //TODO: does not save name to file!
     public void createMember() {
+        String exerciserOrCompetitor = "";
+        String name ="";
+        ui.printMessage("Please enter the members full name: ");
+        name = ui.stringInput();
+        ui.stringInput();
+        ui.printMessage("Please enter the members age: ");
+        String age = ui.stringInput();
+        ui.printMessage("Is the member active or passive?");
+        String activeOrPassive = ui.stringInput();
+        if(activeOrPassive.equals("active")){
+            ui.printMessage("Is the member an exerciser or competitor?");
+            exerciserOrCompetitor = ui.stringInput();
+            if(exerciserOrCompetitor.equals("competitor")){
+                //TODO: should something even happen here?
+                //TODO: the different disciplines maybe idk???
+            }
+        }
+        Member member = new Member(name, age, activeOrPassive, exerciserOrCompetitor);
+        fh.saveUser(member);
     }
 
     public void showMemberList() {
