@@ -1,7 +1,4 @@
 package com.company.domain;
-
-
-import com.company.data.Database;
 import com.company.data.FileHandler;
 import com.company.ui.UserInterface;
 
@@ -26,10 +23,7 @@ public class Controller {
                 case 6 -> swimmerTierList(); //top 5 swimmers in every category.
                 case 0 -> exit();
             }
-
         }
-
-
     }
 
     // ************
@@ -48,14 +42,17 @@ public class Controller {
     public void createMember() {
         String exerciserOrCompetitor = "";
         ui.printMessage("Please enter the members full name: ");
-        ui.stringInput(); //TODO BUG FIX PLZ
+        ui.stringInput(); //avoid scanner bug
         String name = ui.stringInput();
 
         ui.printMessage("Please enter the members age: ");
-        String age = ui.stringInput();
+        int age = ui.intInput();
+        String ageRange = ageRange(age);
 
         ui.printMessage("Is the member active(a) or passive(p)?");
+        ui.stringInput(); //avoid scanner bug
         String activeOrPassive = ui.stringInput();
+
         if(activeOrPassive.equals("p")){
             activeOrPassive = "passive";
         }
@@ -63,16 +60,18 @@ public class Controller {
             activeOrPassive = "active";
             ui.printMessage("Is the member an exerciser(e) or competitor(c)?");
             exerciserOrCompetitor = ui.stringInput();
+
             if(exerciserOrCompetitor.equals("e")){
                 exerciserOrCompetitor = "exerciser";
+
+            } if (exerciserOrCompetitor.equals("c")){
+                exerciserOrCompetitor = "Competitor";
                 //TODO: make arraylist of competitors
                 //TODO: should something even happen here?
                 //TODO: the different disciplines maybe idk???
-            } if (exerciserOrCompetitor.equals("c")){
-                exerciserOrCompetitor = "Competitor";
             }
         }
-        Member member = new Member(name, age, activeOrPassive, exerciserOrCompetitor);
+        Member member = new Member(name, age, ageRange, activeOrPassive, exerciserOrCompetitor);
         fh.saveUser(member);
         //TODO: add member to arraylist
     }
@@ -99,6 +98,15 @@ public class Controller {
     // ************
 
 
-
+    //TODO: move to member class???
+    public String ageRange(int age){
+        String ageRange = "";
+        if(age < 18){
+            ageRange = "Junior";
+        }else if(age >= 18){
+            ageRange = "Senior";
+        }
+        return ageRange;
+    }
 
 }

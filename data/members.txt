@@ -9,3 +9,6 @@ Member{name='Kenneth Lønfeldt Frederiksen', age=29, activeStatus='active', comp
 Member{name='Kenneth Lønfeldt', age=29, activeStatus='passive', competitiveStatus=''}
 Member{name='Chris', age=25, activeStatus='passive', competitiveStatus=''}
 Member{name='Marc', age=23, activeStatus='active', competitiveStatus='competi'}
+Member{name='Hasan', age=16, activeStatus='', competitiveStatus=''}
+Member{name='Hasan', age=16, activeStatus='active', competitiveStatus='exerciser'}
+Member{name='hasan', age=16, activeStatus='active', ageRange='Junior', competitiveStatus='exerciser'}
