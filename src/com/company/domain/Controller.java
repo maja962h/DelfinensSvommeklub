@@ -41,7 +41,7 @@ public class Controller {
     //TODO: does not save name to file!
     public void createMember() {
         String exerciserOrCompetitor = "";
-        String name ="";
+        String name;
         ui.printMessage("Please enter the members full name: ");
         name = ui.stringInput();
         ui.stringInput();
