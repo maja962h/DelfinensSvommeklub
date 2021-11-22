@@ -1,7 +1,5 @@
 package com.company.data;
-
 import com.company.domain.Member;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

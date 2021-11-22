@@ -1,11 +1,9 @@
 package com.company.ui;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class UserInterface {
     Scanner scanner = new Scanner(System.in);
 
-    //TODO: make start menu.
     public void startMenu(){
         printMessage("""
                 Type (1) to create a member.
@@ -30,7 +28,7 @@ public class UserInterface {
                 """);
     }
 
-    // TODO: formulate versatile error message.
+    //TODO: formulate versatile error message.
     public void printError(){
         System.out.println();
     }

@@ -32,13 +32,19 @@ public class Controller {
 
     }
 
+    // ************
+    //
+    // DIRECT METHODS.
+    //
+    // ************
+
+
     private void exit() {
         running = false;
     }
 
     //TODO: find out where methods should be placed (not all belong in controller)
 
-    //TODO: does not save name to file!
     public void createMember() {
         String exerciserOrCompetitor = "";
         String name;
@@ -80,6 +86,11 @@ public class Controller {
     public void swimmerTierList() {
     }
 
+    // ************
+    //
+    // METHODS IN METHODS.
+    //
+    // ************
 
 
 }
