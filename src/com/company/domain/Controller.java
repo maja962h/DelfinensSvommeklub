@@ -32,11 +32,6 @@ public class Controller {
     //
     // ************
 
-
-    private void exit() {
-        running = false;
-    }
-
     //TODO: find out where methods should be placed (not all belong in controller)
 
     public void createMember() {
@@ -89,6 +84,11 @@ public class Controller {
     }
 
     public void swimmerTierList() {
+    }
+
+    public void exit() {
+
+        running = false;
     }
 
     // ************
