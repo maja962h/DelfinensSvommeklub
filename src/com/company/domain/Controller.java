@@ -55,12 +55,14 @@ public class Controller {
             ui.printMessage("Is the member an exerciser or competitor?");
             exerciserOrCompetitor = ui.stringInput();
             if(exerciserOrCompetitor.equals("competitor")){
+                //TODO: make arraylist of competitors
                 //TODO: should something even happen here?
                 //TODO: the different disciplines maybe idk???
             }
         }
         Member member = new Member(name, age, activeOrPassive, exerciserOrCompetitor);
         fh.saveUser(member);
+        //TODO: add member to arraylist
     }
 
     public void showMemberList() {
