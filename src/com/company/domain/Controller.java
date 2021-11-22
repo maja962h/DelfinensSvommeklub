@@ -43,10 +43,12 @@ public class Controller {
         String exerciserOrCompetitor = "";
         String name;
         ui.printMessage("Please enter the members full name: ");
+        ui.stringInput(); //TODO BUG FIX PLZ
         name = ui.stringInput();
-        ui.stringInput();
+
         ui.printMessage("Please enter the members age: ");
         String age = ui.stringInput();
+
         ui.printMessage("Is the member active or passive?");
         String activeOrPassive = ui.stringInput();
         if(activeOrPassive.equals("active")){

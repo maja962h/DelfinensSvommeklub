@@ -5,3 +5,5 @@ Member{name='', age=hasan, activeStatus='active', competitiveStatus='competitor'
 Member{name='', age=16, activeStatus='active', competitiveStatus='competitor'}
 Member{name='', age=16, activeStatus='active', competitiveStatus='competitor'}
 Member{name='', age=25, activeStatus='active', competitiveStatus='cpmpetitor'}
+Member{name='Kenneth Lønfeldt Frederiksen', age=29, activeStatus='active', competitiveStatus='exerciser'}
+Member{name='Kenneth Lønfeldt', age=29, activeStatus='passive', competitiveStatus=''}
