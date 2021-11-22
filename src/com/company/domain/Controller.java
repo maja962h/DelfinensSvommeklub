@@ -47,23 +47,29 @@ public class Controller {
 
     public void createMember() {
         String exerciserOrCompetitor = "";
-        String name;
         ui.printMessage("Please enter the members full name: ");
         ui.stringInput(); //TODO BUG FIX PLZ
-        name = ui.stringInput();
+        String name = ui.stringInput();
 
         ui.printMessage("Please enter the members age: ");
         String age = ui.stringInput();
 
-        ui.printMessage("Is the member active or passive?");
+        ui.printMessage("Is the member active(a) or passive(p)?");
         String activeOrPassive = ui.stringInput();
-        if(activeOrPassive.equals("active")){
-            ui.printMessage("Is the member an exerciser or competitor?");
+        if(activeOrPassive.equals("p")){
+            activeOrPassive = "passive";
+        }
+        if(activeOrPassive.equals("a")){
+            activeOrPassive = "active";
+            ui.printMessage("Is the member an exerciser(e) or competitor(c)?");
             exerciserOrCompetitor = ui.stringInput();
-            if(exerciserOrCompetitor.equals("competitor")){
+            if(exerciserOrCompetitor.equals("e")){
+                exerciserOrCompetitor = "exerciser";
                 //TODO: make arraylist of competitors
                 //TODO: should something even happen here?
                 //TODO: the different disciplines maybe idk???
+            } if (exerciserOrCompetitor.equals("c")){
+                exerciserOrCompetitor = "Competitor";
             }
         }
         Member member = new Member(name, age, activeOrPassive, exerciserOrCompetitor);
