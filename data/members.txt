@@ -1,0 +1,7 @@
+com.company.domain.Member@7cc355be
+Member{name='', age=16, activeStatus='active', competitiveStatus='competitor'}
+Member{name='', age=16, activeStatus='passive', competitiveStatus=''}
+Member{name='', age=hasan, activeStatus='active', competitiveStatus='competitor'}
+Member{name='', age=16, activeStatus='active', competitiveStatus='competitor'}
+Member{name='', age=16, activeStatus='active', competitiveStatus='competitor'}
+Member{name='', age=25, activeStatus='active', competitiveStatus='cpmpetitor'}
