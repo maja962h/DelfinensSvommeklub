@@ -43,9 +43,9 @@ public class Controller {
         ui.printMessage("Please enter the members age: ");
         int age = ui.intInput();
         String ageRange = ageRange(age);
+        ui.stringInput(); //avoid scanner bug
 
         ui.printMessage("Is the member active(a) or passive(p)?");
-        ui.stringInput(); //avoid scanner bug
         String activeOrPassive = ui.stringInput();
 
         if(activeOrPassive.equals("p")){
