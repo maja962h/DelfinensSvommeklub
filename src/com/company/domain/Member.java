@@ -7,6 +7,8 @@ public class Member implements Comparable{
     private String activeStatus; //active or passive?
     private String ageRange; //junior or senior?
     private String competitiveStatus; //competitive or non-competitive?
+    private String discipline;
+
 
     public Member(String name, int age, String ageRange, String activeStatus, String competitiveStatus){
         this.name = name;
@@ -17,8 +19,13 @@ public class Member implements Comparable{
 
     }
 
-    public Member(){
-
+    public Member(String name, int age, String ageRange, String activeStatus, String competitiveStatus, String discipline){
+        this.name = name;
+        this.age = age;
+        this.activeStatus = activeStatus;
+        this.ageRange = ageRange;
+        this.competitiveStatus = competitiveStatus;
+        this.discipline = discipline;
     }
 
     public String getAgeRange() {

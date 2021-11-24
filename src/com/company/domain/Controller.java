@@ -1,7 +1,6 @@
 package com.company.domain;
 import com.company.data.FileHandler;
 import com.company.ui.UserInterface;
-
 import java.util.Collections;
 
 public class Controller {
@@ -9,6 +8,7 @@ public class Controller {
      private UserInterface ui = new UserInterface();
      private FileHandler fh = new FileHandler();
      private boolean running = true;
+
 
     public void start(){
         ui.printWelcomeMessage();
@@ -64,21 +64,23 @@ public class Controller {
 
             } if (exerciserOrCompetitor.equals("c") || exerciserOrCompetitor.equals("competitor")){
                 exerciserOrCompetitor = "Competitor";
-                //TODO: make arraylist of competitors
+                String disciplines = "";
                 //TODO: should something even happen here?
                 //TODO: the different disciplines maybe idk???
+                fh.addNewCompetitor(name, age, ageRange, activeOrPassive, exerciserOrCompetitor, disciplines);
+                fh.saveCompetitor();
             }
         }
         fh.addNewMember(name, age, ageRange, activeOrPassive, exerciserOrCompetitor);
         fh.saveMember();
     }
 
-    // You are able to view differnt member lists
+    // You are able to view different member lists
     public void showMemberList() {
         ui.memberListMenu();
-        int listinput = ui.intInput();
+        int listInput = ui.intInput();
 
-        switch (listinput) {
+        switch (listInput) {
         case 1 -> fullMemberList();
         case 2 -> juniorMemberList();
         case 3 -> seniorMemberList();
