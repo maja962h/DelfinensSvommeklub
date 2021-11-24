@@ -50,7 +50,7 @@ public class Member implements Comparable{
 
     @Override
     public String toString() {
-        return name + ": " + age + " år, " + ageRange + ". " + competitiveStatus + ".\n";
+        return name + ": " + age + " år, " + ageRange + ". " + activeStatus + " " + competitiveStatus + "\n";
     }
 
     @Override
