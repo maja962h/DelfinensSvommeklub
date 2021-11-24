@@ -65,10 +65,19 @@ public class Controller {
             } if (exerciserOrCompetitor.equals("c") || exerciserOrCompetitor.equals("competitor")){
                 exerciserOrCompetitor = "Competitor";
 
-                String disciplines = "";
-                ui.disciplineMenu();
-                int disciplineInput = ui.intInput();
-                String discipline = getDisciplines(disciplineInput, disciplines);
+                boolean keepAdding = true;
+                String discipline = "";
+
+                while(keepAdding){
+                    String disciplines = "";
+                    ui.disciplineMenu();
+                    int disciplineInput = ui.intInput();
+                    discipline = getDisciplines(disciplineInput, disciplines);
+                    ui.stringInput(); //avoid scanner bug
+                    ui.printMessage("do you want to add another discipline?");
+                    String addAnotherDiscipline = ui.stringInput();
+                    keepAdding = continueAddingDisciplines(addAnotherDiscipline, discipline);
+                }
                 fh.addNewCompetitor(name, age, ageRange, activeOrPassive, exerciserOrCompetitor, discipline);
                 fh.saveCompetitor();
                 //TODO: can only add one discipline, this needs to be fixed.
@@ -165,6 +174,10 @@ public class Controller {
             discipline = "Breaststroke";
         }
         return discipline;
+    }
+
+    public boolean continueAddingDisciplines(String input, String discipline){
+        return input.equals("y");
     }
 
 
