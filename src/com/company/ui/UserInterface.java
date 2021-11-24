@@ -4,6 +4,13 @@ import java.util.Scanner;
 public class UserInterface {
     Scanner scanner = new Scanner(System.in);
 
+    public void printWelcomeMessage(){
+        //TODO: find dolphin code drawing thingy XD
+        printMessage("""
+                Welcome to the Dolphin!
+                """);
+    }
+
     public void startMenu(){
         printMessage("""
                 Type (1) to create a member.
@@ -16,21 +23,23 @@ public class UserInterface {
                 """);
     }
 
+    public void memberListMenu(){
+        printMessage("""
+                Which list would you like to view?
+                (1) Full member list.
+                (2) Junior member list.
+                (3) Senior memberList.
+                """);
+    }
+
 
     public void printMessage(String message){
         System.out.println(message);
     }
 
-    public void printWelcomeMessage(){
-        //TODO: find dolphin code drawing thingy XD
-        printMessage("""
-                Welcome to the Dolphin!
-                """);
-    }
 
-    //TODO: formulate versatile error message.
     public void printError(){
-        System.out.println();
+        System.out.println("The input was invalid, please try again.");
     }
 
 

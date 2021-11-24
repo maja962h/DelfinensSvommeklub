@@ -8,7 +8,6 @@ public class Controller {
 
      private UserInterface ui = new UserInterface();
      private FileHandler fh = new FileHandler();
-     private Member mem = new Member();
      private boolean running = true;
 
     public void start(){
@@ -25,7 +24,7 @@ public class Controller {
                 case 5 -> compSwimmingSchedule(); //place, time and registration for competitions.
                 case 6 -> swimmerTierList(); //top 5 swimmers in every category.
                 case 0 -> exit();
-                default -> ui.printError();
+                    default -> ui.printError();
             }
         }
     }
@@ -52,18 +51,18 @@ public class Controller {
         ui.printMessage("Is the member active(a) or passive(p)?");
         String activeOrPassive = ui.stringInput();
 
-        if(activeOrPassive.equals("p")){
+        if(activeOrPassive.equals("p") || activeOrPassive.equals("passive")){
             activeOrPassive = "passive";
         }
-        if(activeOrPassive.equals("a")){
+        if(activeOrPassive.equals("a") || activeOrPassive.equals("active")){
             activeOrPassive = "active";
             ui.printMessage("Is the member an exerciser(e) or competitor(c)?");
             exerciserOrCompetitor = ui.stringInput();
 
-            if(exerciserOrCompetitor.equals("e")){
+            if(exerciserOrCompetitor.equals("e") || exerciserOrCompetitor.equals("exerciser")){
                 exerciserOrCompetitor = "exerciser";
 
-            } if (exerciserOrCompetitor.equals("c")){
+            } if (exerciserOrCompetitor.equals("c") || exerciserOrCompetitor.equals("competitor")){
                 exerciserOrCompetitor = "Competitor";
                 //TODO: make arraylist of competitors
                 //TODO: should something even happen here?
@@ -72,15 +71,18 @@ public class Controller {
         }
         fh.addNewMember(name, age, ageRange, activeOrPassive, exerciserOrCompetitor);
         fh.saveMember();
-        //TODO: add member to arraylist
     }
 
+    // You are able to view differnt member lists
     public void showMemberList() {
-        Collections.sort(fh.getMemberList());
+        ui.memberListMenu();
+        int listinput = ui.intInput();
 
-        // loops through ArrayList and prints info.
-        for (Member member : fh.getMemberList()){
-            ui.printMessage(member.toString());
+        switch (listinput) {
+        case 1 -> fullMemberList();
+        case 2 -> juniorMemberList();
+        case 3 -> seniorMemberList();
+            default -> ui.printError();
         }
     }
 
@@ -97,7 +99,6 @@ public class Controller {
     }
 
     public void exit() {
-
         running = false;
     }
 
@@ -109,7 +110,7 @@ public class Controller {
 
 
     //TODO: move to member class???
-    public String ageRange(int age){
+    private String ageRange(int age){
         String ageRange = "";
         if(age < 18){
             ageRange = "Junior";
@@ -118,5 +119,35 @@ public class Controller {
         }
         return ageRange;
     }
+
+    private void fullMemberList(){
+        Collections.sort(fh.getMemberList());
+
+        // loops through ArrayList and prints info.
+        for (Member member : fh.getMemberList()){
+            ui.printMessage(member.toString());
+        }
+    }
+
+    private void juniorMemberList(){
+        Collections.sort(fh.getMemberList());
+
+        for (Member member : fh.getMemberList()){
+            if (member.getAgeRange().equals("Junior")){
+                ui.printMessage(member.toString());
+            }
+        }
+    }
+
+    public void seniorMemberList(){
+        Collections.sort(fh.getMemberList());
+
+        for (Member member : fh.getMemberList()){
+            if (member.getAgeRange().equals("Senior")){
+                ui.printMessage(member.toString());
+            }
+        }
+    }
+
 
 }

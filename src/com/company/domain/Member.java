@@ -21,6 +21,9 @@ public class Member implements Comparable{
 
     }
 
+    public String getAgeRange() {
+        return ageRange;
+    }
 
     @Override
     public String toString() {
