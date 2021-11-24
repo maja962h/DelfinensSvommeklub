@@ -11,6 +11,6 @@ public class Competitor extends Member {
 
     @Override
     public String toString() {
-        return name + ": " + age + " år, " + ageRange + ". Discipline(s): " + disciplines;
+        return name + ": " + age + " år, " + ageRange + ". Discipline(s): " + disciplines + "\n";
     }
 }

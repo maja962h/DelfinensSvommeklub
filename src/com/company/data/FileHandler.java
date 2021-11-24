@@ -51,6 +51,7 @@ public class FileHandler {
         }
 
     }
+
     public ArrayList<Member> getMemberList() {
         return memberList;
     }
