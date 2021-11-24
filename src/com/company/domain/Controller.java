@@ -64,10 +64,14 @@ public class Controller {
 
             } if (exerciserOrCompetitor.equals("c") || exerciserOrCompetitor.equals("competitor")){
                 exerciserOrCompetitor = "Competitor";
+
                 String disciplines = "";
+                ui.disciplineMenu();
+                int disciplineInput = ui.intInput();
+                String discipline = getDisciplines(disciplineInput, disciplines);
                 //TODO: should something even happen here?
                 //TODO: the different disciplines maybe idk???
-                fh.addNewCompetitor(name, age, ageRange, activeOrPassive, exerciserOrCompetitor, disciplines);
+                fh.addNewCompetitor(name, age, ageRange, activeOrPassive, exerciserOrCompetitor, discipline);
                 fh.saveCompetitor();
             }
         }
@@ -149,6 +153,19 @@ public class Controller {
                 ui.printMessage(member.toString());
             }
         }
+    }
+
+    public String getDisciplines(int input, String discipline){
+        if (input == 1){
+            discipline = "Butterfly";
+        } else if (input == 2){
+            discipline = "Freestyle";
+        } else if (input == 3){
+            discipline = "Backstroke";
+        } else if (input == 4){
+            discipline = "Breaststroke";
+        }
+        return discipline;
     }
 
 

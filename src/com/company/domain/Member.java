@@ -2,12 +2,12 @@ package com.company.domain;
 
 public class Member implements Comparable{
 
-    private String name;
-    private int age;
-    private String activeStatus; //active or passive?
-    private String ageRange; //junior or senior?
-    private String competitiveStatus; //competitive or non-competitive?
-    private String discipline;
+    protected String name;
+    protected int age;
+    protected String activeStatus; //active or passive?
+    protected String ageRange; //junior or senior?
+    protected String competitiveStatus; //competitive or non-competitive?
+
 
 
     public Member(String name, int age, String ageRange, String activeStatus, String competitiveStatus){
@@ -19,17 +19,33 @@ public class Member implements Comparable{
 
     }
 
-    public Member(String name, int age, String ageRange, String activeStatus, String competitiveStatus, String discipline){
+   /* public Member(String name, int age, String ageRange, String activeStatus, String competitiveStatus){
         this.name = name;
         this.age = age;
         this.activeStatus = activeStatus;
         this.ageRange = ageRange;
         this.competitiveStatus = competitiveStatus;
-        this.discipline = discipline;
+
+    }*/
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     public String getAgeRange() {
         return ageRange;
+    }
+
+    public String getActiveStatus() {
+        return activeStatus;
+    }
+
+    public String getCompetitiveStatus() {
+        return competitiveStatus;
     }
 
     @Override

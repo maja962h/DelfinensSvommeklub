@@ -1,10 +1,16 @@
 package com.company.domain;
 
-public class Competitor {
+public class Competitor extends Member {
 
-    public Competitor(){
+    private String disciplines;
 
+    public Competitor(String name, int age, String ageRange, String activeStatus, String competitiveStatus, String discipline){
+        super(name, age, ageRange, activeStatus, competitiveStatus);
+        this.disciplines = discipline;
     }
 
-
+    @Override
+    public String toString() {
+        return name + ": " + age + " år, " + ageRange + ". Discipline(s): " + disciplines;
+    }
 }

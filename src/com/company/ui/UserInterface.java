@@ -32,6 +32,16 @@ public class UserInterface {
                 """);
     }
 
+    public void disciplineMenu(){
+        printMessage("""
+                Choose which disciplines you want:
+                (1) Butterfly.
+                (2) Freestyle.
+                (3) Backstroke.
+                (4) Breaststroke.
+                """);
+    }
+
 
     public void printMessage(String message){
         System.out.println(message);

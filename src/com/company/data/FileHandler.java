@@ -1,4 +1,5 @@
 package com.company.data;
+import com.company.domain.Competitor;
 import com.company.domain.Member;
 
 import java.io.*;
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 public class FileHandler {
 
     private ArrayList<Member> memberList = new ArrayList<>();
-    private ArrayList<Member> competitors = new ArrayList<>();
+    private ArrayList<Competitor> competitors = new ArrayList<>();
 
 
     public void addNewMember(String name, int age, String ageRange, String activeStatus, String competitiveStatus){
@@ -54,11 +55,11 @@ public class FileHandler {
         return memberList;
     }
 
-    public ArrayList<Member> getCompetitors() {
+    public ArrayList<Competitor> getCompetitors() {
         return competitors;
     }
     public void addNewCompetitor(String name, int age, String ageRange, String activeStatus, String competitiveStatus, String disciplines){
-        Member member = new Member(name, age, ageRange, activeStatus, competitiveStatus, disciplines);
-        competitors.add(member);
+        Competitor competitor = new Competitor(name, age, ageRange, activeStatus, competitiveStatus, disciplines);
+        competitors.add(competitor);
     }
 }
