@@ -69,10 +69,9 @@ public class Controller {
                 ui.disciplineMenu();
                 int disciplineInput = ui.intInput();
                 String discipline = getDisciplines(disciplineInput, disciplines);
-                //TODO: should something even happen here?
-                //TODO: the different disciplines maybe idk???
                 fh.addNewCompetitor(name, age, ageRange, activeOrPassive, exerciserOrCompetitor, discipline);
                 fh.saveCompetitor();
+                //TODO: can only add one discipline, this needs to be fixed.
             }
         }
         fh.addNewMember(name, age, ageRange, activeOrPassive, exerciserOrCompetitor);
