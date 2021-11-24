@@ -2,10 +2,13 @@ package com.company.domain;
 import com.company.data.FileHandler;
 import com.company.ui.UserInterface;
 
+import java.util.Collections;
+
 public class Controller {
 
      private UserInterface ui = new UserInterface();
      private FileHandler fh = new FileHandler();
+     private Member mem = new Member();
      private boolean running = true;
 
     public void start(){
@@ -22,6 +25,7 @@ public class Controller {
                 case 5 -> compSwimmingSchedule(); //place, time and registration for competitions.
                 case 6 -> swimmerTierList(); //top 5 swimmers in every category.
                 case 0 -> exit();
+                default -> ui.printError();
             }
         }
     }
@@ -66,12 +70,18 @@ public class Controller {
                 //TODO: the different disciplines maybe idk???
             }
         }
-        Member member = new Member(name, age, ageRange, activeOrPassive, exerciserOrCompetitor);
-        fh.saveUser(member);
+        fh.addNewMember(name, age, ageRange, activeOrPassive, exerciserOrCompetitor);
+        fh.saveMember();
         //TODO: add member to arraylist
     }
 
     public void showMemberList() {
+        Collections.sort(fh.getMemberList());
+
+        // loops through ArrayList and prints info.
+        for (Member member : fh.getMemberList()){
+            ui.printMessage(member.toString());
+        }
     }
 
     public void checkDelinquentStatus() {

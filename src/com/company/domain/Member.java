@@ -1,6 +1,6 @@
 package com.company.domain;
 
-public class Member {
+public class Member implements Comparable{
 
     private String name;
     private int age;
@@ -17,15 +17,19 @@ public class Member {
 
     }
 
+    public Member(){
+
+    }
+
 
     @Override
     public String toString() {
-        return "Member{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", activeStatus='" + activeStatus + '\'' +
-                ", ageRange='" + ageRange + '\'' +
-                ", competitiveStatus='" + competitiveStatus + '\'' +
-                '}';
+        return name + ": " + age + " år, " + ageRange + ". " + competitiveStatus + ".\n";
+    }
+
+    @Override
+    public int compareTo(Object other) {
+        Member anotherMember = (Member) other; // Typecasting
+        return name.compareTo(anotherMember.name);
     }
 }
