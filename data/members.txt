@@ -4,3 +4,6 @@ hej: 56 år, Senior. Competitor.
 
 hihi: 34 år, Senior. Competitor.
 
+d Senior null null
+marc Senior active Competitor
+Dan Junior passive none

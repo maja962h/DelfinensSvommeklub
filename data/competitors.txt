@@ -1,2 +1,10 @@
-Chris Junior active Competitor
-Chris Junior active Competitor
+gugu: 45 år, Senior. Competitor.
+
+hej: 56 år, Senior. Discipline:
+
+hihi: 34 år, Senior. Discipline(s): Freestyle
+
+john: 34 år, Senior. Discipline(s): Backstroke
+c Junior active Competitor
+a Senior active Competitor
+marc Senior active Competitor

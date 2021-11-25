@@ -19,6 +19,12 @@ public class Member implements Comparable{
 
     }
 
+    public Member(String name, int age, String ageRange){
+        this.name = name;
+        this.age = age;
+        this.ageRange = ageRange;
+    }
+
     public Member(String name, String ageRange, String activeStatus, String competitiveStatus){
         this.name = name;
         this.ageRange = ageRange;
@@ -45,6 +51,14 @@ public class Member implements Comparable{
 
     public String getCompetitiveStatus() {
         return competitiveStatus;
+    }
+
+    public void setActiveStatus(String activeStatus) {
+        this.activeStatus = activeStatus;
+    }
+
+    public void setCompetitiveStatus(String competitiveStatus) {
+        this.competitiveStatus = competitiveStatus;
     }
 
     @Override

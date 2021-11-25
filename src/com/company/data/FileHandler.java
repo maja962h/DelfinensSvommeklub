@@ -12,8 +12,11 @@ public class FileHandler {
     private ArrayList<Competitor> competitors = new ArrayList<>();
 
 
-    public void addNewMember(String name, int age, String ageRange, String activeStatus, String competitiveStatus){
+    /*public void addNewMember(String name, int age, String ageRange, String activeStatus, String competitiveStatus){
         Member member = new Member(name, age, ageRange, activeStatus, competitiveStatus);
+        memberList.add(member);
+    } */
+    public void addNewMember(Member member){
         memberList.add(member);
     }
 
@@ -111,8 +114,12 @@ public class FileHandler {
     public ArrayList<Competitor> getCompetitors() {
         return competitors;
     }
-    public void addNewCompetitor(String name, int age, String ageRange, String activeStatus, String competitiveStatus, String disciplines){
+    /*public void addNewCompetitor(String name, int age, String ageRange, String activeStatus, String competitiveStatus, String disciplines){
         Competitor competitor = new Competitor(name, age, ageRange, activeStatus, competitiveStatus, disciplines);
+        competitors.add(competitor);
+    }*/
+
+    public void addNewCompetitor(Competitor competitor){
         competitors.add(competitor);
     }
 }

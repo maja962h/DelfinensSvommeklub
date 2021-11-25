@@ -1,29 +1,20 @@
 package com.company.domain;
+
 import com.company.data.FileHandler;
 import com.company.ui.UserInterface;
+
 import java.util.Collections;
 
 public class Controller {
 
-     private UserInterface ui = new UserInterface();
-     private FileHandler fh = new FileHandler();
-     private boolean running = true;
+    private UserInterface ui = new UserInterface();
+    private FileHandler fh = new FileHandler();
+    private boolean running = true;
 
-
-    public void start(){
-
-        //TDODO REMOVE HARDCODE - MAKE IT FLUID
-        Member member1 = new Member("Kenneth Lønfedlt", 2, "Senior", "Passive", "");
-        Member member2 = new Member("Chris Lønborg", 25, "Senior", "Active", "Competitor");
-        Member member3 = new Member("Güler Nur", 17, "Junior", "Active,", "Exerciser");
-        Member member4 = new Member("Maja Matboue", 17, "Junior", "Active", "Competitor");
-        fh.addOneMember(member1);
-        fh.addOneMember(member2);
-        fh.addOneMember(member3);
-        fh.addOneMember(member4);
+    public void start() {
 
         ui.printWelcomeMessage();
-        while(running){
+        while (running) {
             ui.startMenu();
             int input = ui.intInput();
 
@@ -35,7 +26,7 @@ public class Controller {
                 case 5 -> compSwimmingSchedule(); //place, time and registration for competitions.
                 case 6 -> swimmerTierList(); //top 5 swimmers in every category.
                 case 0 -> exit();
-                    default -> ui.printError();
+                default -> ui.printError();
             }
         }
     }
@@ -49,7 +40,6 @@ public class Controller {
     //TODO: find out where methods should be placed (not all belong in controller)
 
     public void createMember() {
-        String exerciserOrCompetitor = "";
         ui.printMessage("Please enter the members full name: ");
         ui.stringInput(); //avoid scanner bug
         String name = ui.stringInput();
@@ -60,44 +50,67 @@ public class Controller {
         ui.stringInput(); //avoid scanner bug
 
         ui.printMessage("Is the member active(a) or passive(p)?");
-        String activeOrPassive = ui.stringInput();
+        String input = ui.stringInput();
 
-        if(activeOrPassive.equals("p") || activeOrPassive.equals("passive")){
-            activeOrPassive = "passive";
-            exerciserOrCompetitor = "None";
-        }
-        if(activeOrPassive.equals("a") || activeOrPassive.equals("active")){
-            activeOrPassive = "active";
-            ui.printMessage("Is the member an exerciser(e) or competitor(c)?");
-            exerciserOrCompetitor = ui.stringInput();
+        Member member = new Member(name, age, ageRange);
+        isActiveOrPassive(member, input);
 
-            if(exerciserOrCompetitor.equals("e") || exerciserOrCompetitor.equals("exerciser")){
-                exerciserOrCompetitor = "exerciser";
-
-            } if (exerciserOrCompetitor.equals("c") || exerciserOrCompetitor.equals("competitor")){
-                exerciserOrCompetitor = "Competitor";
-
-                boolean keepAdding = true;
-                String discipline = "";
-
-                while(keepAdding){
-                    //TODO: how to not override disciplines? array???
-                    String disciplines = "";
-                    ui.disciplineMenu();
-                    int disciplineInput = ui.intInput();
-                    discipline = getDisciplines(disciplineInput, disciplines);
-                    ui.stringInput(); //avoid scanner bug
-                    ui.printMessage("do you want to add another discipline?");
-                    String addAnotherDiscipline = ui.stringInput();
-                    keepAdding = continueAddingDisciplines(addAnotherDiscipline, discipline);
-                }
-                fh.addNewCompetitor(name, age, ageRange, activeOrPassive, exerciserOrCompetitor, discipline);
-                fh.saveCompetitor();
-                //TODO: can only add one discipline, this needs to be fixed.
-            }
-        }
-        fh.addNewMember(name, age, ageRange, activeOrPassive, exerciserOrCompetitor);
+        fh.addNewMember(member);
         fh.saveMember();
+    }
+
+    public void isActiveOrPassive(Member member, String input){
+        switch (input){
+            case "a":
+                member.setActiveStatus("active");
+                ui.printMessage("Is the member an exerciser(e) or competitor(c)?");
+                String eOrc = ui.stringInput();
+                isCompetitorOrExerciser(member, eOrc);
+                break;
+            case "p":
+                member.setActiveStatus("passive");
+                member.setCompetitiveStatus("none");
+                break;
+            default:
+                ui.printMessage("try again");
+                break;
+        }
+    }
+
+    public void isCompetitorOrExerciser(Member member, String input){
+        switch (input){
+            case "c":
+                member.setCompetitiveStatus("Competitor");
+                chooseDisciplines(member);
+                break;
+            case "e":
+                member.setCompetitiveStatus("Exerciser");
+                break;
+            default:
+                ui.printMessage("try again");
+                break;
+        }
+    }
+
+    public void chooseDisciplines(Member member) {
+        boolean keepAdding = true;
+        String discipline = "";
+
+        while (keepAdding) {
+            //Print status for alle kategorier
+            //TODO: how to not override disciplines? array???
+            ui.disciplineMenu();
+            int disciplineInput = ui.intInput();
+            discipline = getDisciplines(disciplineInput);
+            ui.stringInput(); //avoid scanner bug
+            ui.printMessage("do you want to add another discipline?");
+            String addAnotherDiscipline = ui.stringInput();
+            keepAdding = continueAddingDisciplines(addAnotherDiscipline, discipline);
+        }
+        Competitor competitor = new Competitor(member.getName(), member.getAge(), member.getAgeRange(), member.getActiveStatus(), member.competitiveStatus, discipline);
+        fh.addNewCompetitor(competitor);
+        fh.saveCompetitor();
+        //TODO: can only add one discipline, this needs to be fixed.
     }
 
     // You are able to view different member lists
@@ -106,9 +119,9 @@ public class Controller {
         int listInput = ui.intInput();
 
         switch (listInput) {
-        case 1 -> fullMemberList();
-        case 2 -> juniorMemberList();
-        case 3 -> seniorMemberList();
+            case 1 -> fullMemberList();
+            case 2 -> juniorMemberList();
+            case 3 -> seniorMemberList();
             default -> ui.printError();
         }
     }
@@ -137,17 +150,17 @@ public class Controller {
 
 
     //TODO: move to member class???
-    private String ageRange(int age){
+    private String ageRange(int age) {
         String ageRange = "";
-        if(age < 18){
+        if (age < 18) {
             ageRange = "Junior";
-        }else if(age >= 18){
+        } else if (age >= 18) {
             ageRange = "Senior";
         }
         return ageRange;
     }
 
-    private void fullMemberList(){
+    private void fullMemberList() {
         /*Collections.sort(fh.getMemberList());
 
         // loops through ArrayList and prints info.
@@ -157,43 +170,43 @@ public class Controller {
         ui.printMessage(fh.makeStringMember());
     }
 
-    private void juniorMemberList(){
+    private void juniorMemberList() {
         Collections.sort(fh.getMemberList());
 
-        for (Member member : fh.getMemberList()){
-            if (member.getAgeRange().equals("Junior")){
+        for (Member member : fh.getMemberList()) {
+            if (member.getAgeRange().equals("Junior")) {
                 ui.printMessage(member.toString());
             }
         }
     }
 
-    public void seniorMemberList(){
+    public void seniorMemberList() {
         Collections.sort(fh.getMemberList());
 
-        for (Member member : fh.getMemberList()){
-            if (member.getAgeRange().equals("Senior")){
+        for (Member member : fh.getMemberList()) {
+            if (member.getAgeRange().equals("Senior")) {
                 ui.printMessage(member.toString());
             }
         }
     }
 
-    public String getDisciplines(int input, String discipline){
-        if (input == 1){
+    public String getDisciplines(int input) {
+        String discipline = "";
+        if (input == 1) {
             discipline = "Butterfly";
-        } else if (input == 2){
+        } else if (input == 2) {
             discipline = "Crawl";
-        } else if (input == 3){
+        } else if (input == 3) {
             discipline = "Back crawl";
-        } else if (input == 4){
+        } else if (input == 4) {
             discipline = "Breaststroke";
         }
         return discipline;
     }
 
-    public boolean continueAddingDisciplines(String input, String discipline){
+    public boolean continueAddingDisciplines(String input, String discipline) {
         return input.equals("y");
     }
-
 
 
 }
