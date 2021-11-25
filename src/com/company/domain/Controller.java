@@ -11,6 +11,17 @@ public class Controller {
 
 
     public void start(){
+
+        //TDODO REMOVE HARDCODE - MAKE IT FLUID
+        Member member1 = new Member("Kenneth Lønfedlt", 2, "Senior", "Passive", "");
+        Member member2 = new Member("Chris Lønborg", 25, "Senior", "Active", "Competitor");
+        Member member3 = new Member("Güler Nur", 17, "Junior", "Active,", "Exerciser");
+        Member member4 = new Member("Maja Matboue", 17, "Junior", "Active", "Competitor");
+        fh.addOneMember(member1);
+        fh.addOneMember(member2);
+        fh.addOneMember(member3);
+        fh.addOneMember(member4);
+
         ui.printWelcomeMessage();
         while(running){
             ui.startMenu();

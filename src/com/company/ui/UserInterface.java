@@ -7,6 +7,7 @@ public class UserInterface {
 
     public void printWelcomeMessage(){
         //TODO: find dolphin code drawing thingy XD
+        // TODO: Add source
         printMessage("""
                  __      __         .__                                         __                __   .__                 ________           .__           .__         \s
                 /  \\    /  \\  ____  |  |    ____   ____    _____    ____      _/  |_  ____      _/  |_ |  |__    ____      \\______ \\    ____  |  |  ______  |__|  ____  \s

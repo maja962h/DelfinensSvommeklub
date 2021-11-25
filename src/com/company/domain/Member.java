@@ -57,4 +57,5 @@ public class Member implements Comparable{
         Member anotherMember = (Member) other; // Typecasting
         return name.compareTo(anotherMember.name);
     }
+
 }

@@ -17,6 +17,9 @@ public class FileHandler {
         memberList.add(member);
     }
 
+    public void addOneMember(Member member){
+        memberList.add((member));
+    }
     public void saveMember(){
         File file = new File("data/members.txt");
 
