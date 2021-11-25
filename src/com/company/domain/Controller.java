@@ -1,6 +1,8 @@
 package com.company.domain;
 import com.company.data.FileHandler;
 import com.company.ui.UserInterface;
+
+import java.util.ArrayList;
 import java.util.Collections;
 
 public class Controller {
@@ -69,6 +71,7 @@ public class Controller {
                 String discipline = "";
 
                 while(keepAdding){
+                    //TODO: how to not override disciplines? array???
                     String disciplines = "";
                     ui.disciplineMenu();
                     int disciplineInput = ui.intInput();
@@ -168,9 +171,9 @@ public class Controller {
         if (input == 1){
             discipline = "Butterfly";
         } else if (input == 2){
-            discipline = "Freestyle";
+            discipline = "Crawl";
         } else if (input == 3){
-            discipline = "Backstroke";
+            discipline = "Back crawl";
         } else if (input == 4){
             discipline = "Breaststroke";
         }
@@ -180,6 +183,4 @@ public class Controller {
     public boolean continueAddingDisciplines(String input, String discipline){
         return input.equals("y");
     }
-
-
 }

@@ -1,4 +1,7 @@
 gugu: 45 år, Senior. Competitor.
 
-hej: 56 år, Senior. Discipline: 
+hej: 56 år, Senior. Discipline:
+
 hihi: 34 år, Senior. Discipline(s): Freestyle
+
+john: 34 år, Senior. Discipline(s): Backstroke
