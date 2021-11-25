@@ -1,8 +1,6 @@
 package com.company.domain;
 import com.company.data.FileHandler;
 import com.company.ui.UserInterface;
-
-import java.util.ArrayList;
 import java.util.Collections;
 
 public class Controller {
@@ -55,6 +53,7 @@ public class Controller {
 
         if(activeOrPassive.equals("p") || activeOrPassive.equals("passive")){
             activeOrPassive = "passive";
+            exerciserOrCompetitor = "None";
         }
         if(activeOrPassive.equals("a") || activeOrPassive.equals("active")){
             activeOrPassive = "active";
@@ -144,7 +143,7 @@ public class Controller {
         for (Member member : fh.getMemberList()){
             ui.printMessage(member.toString());
         }*/
-        fh.readFile();
+        ui.printMessage(fh.makeStringMember());
     }
 
     private void juniorMemberList(){
@@ -183,4 +182,7 @@ public class Controller {
     public boolean continueAddingDisciplines(String input, String discipline){
         return input.equals("y");
     }
+
+
+
 }

@@ -1,4 +1,5 @@
 package com.company.ui;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -66,5 +67,8 @@ public class UserInterface {
         return scanner.nextInt();
     }
 
+    public void printArray(List list){
+        System.out.println(list);
+    }
 
 }

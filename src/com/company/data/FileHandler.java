@@ -24,10 +24,14 @@ public class FileHandler {
             FileWriter fileWriter = new FileWriter(file, true);
 
             for(Member member : memberList){
-                fileWriter.append(member.toString());
+                fileWriter.append(member.getName() + " ");
+                fileWriter.append(member.getAgeRange() + " ");
+                fileWriter.append(member.getActiveStatus() + " ");
+                fileWriter.append(member.getCompetitiveStatus());
                 fileWriter.append("\n");
             }
             fileWriter.close();
+            memberList.clear();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -42,7 +46,10 @@ public class FileHandler {
             FileWriter fileWriter = new FileWriter(file, true);
 
             for(Member member : competitors){
-                fileWriter.append(member.toString());
+                fileWriter.append(member.getName() + " ");
+                fileWriter.append(member.getAgeRange() + " ");
+                fileWriter.append(member.getActiveStatus() + " ");
+                fileWriter.append(member.getCompetitiveStatus());
                 fileWriter.append("\n");
             }
             fileWriter.close();
@@ -53,18 +60,44 @@ public class FileHandler {
 
     }
 
-    public void readFile(){
+    public ArrayList<Member> readFile(){
         File myObj = new File("data/members.txt");
         try {
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                System.out.println(data);
+                String[] test = data.split(" ");
+                Member member = new Member(test[0], test[1], test[2], test[3]);
+                memberList.add(member);
             }
+            return memberList;
+
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+        return null;
+    }
+
+    // Turns arraylist into string so it can be printed to console.
+    public String makeStringMember(){
+
+        //Initializing a StringBuilder object.
+        StringBuilder stringBuilder = new StringBuilder();
+
+        //Loops through the list of members.
+        for (Member member : readFile()) {
+
+            stringBuilder.append(member.getName()).append(" ");
+
+            stringBuilder.append(member.getAgeRange()).append(" ");
+
+            stringBuilder.append(member.getActiveStatus()).append(" ");
+
+            stringBuilder.append(member.getCompetitiveStatus()).append("\n");
+
+        }
+        return stringBuilder.toString();
     }
 
 
