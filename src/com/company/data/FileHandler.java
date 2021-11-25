@@ -4,6 +4,7 @@ import com.company.domain.Member;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class FileHandler {
 
@@ -51,6 +52,21 @@ public class FileHandler {
         }
 
     }
+
+    public void readFile(){
+        File myObj = new File("data/members.txt");
+        try {
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                System.out.println(data);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
 
     public ArrayList<Member> getMemberList() {
         return memberList;

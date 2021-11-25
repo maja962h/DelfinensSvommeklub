@@ -135,12 +135,13 @@ public class Controller {
     }
 
     private void fullMemberList(){
-        Collections.sort(fh.getMemberList());
+        /*Collections.sort(fh.getMemberList());
 
         // loops through ArrayList and prints info.
         for (Member member : fh.getMemberList()){
             ui.printMessage(member.toString());
-        }
+        }*/
+        fh.readFile();
     }
 
     private void juniorMemberList(){
