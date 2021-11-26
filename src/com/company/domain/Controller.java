@@ -41,13 +41,11 @@ public class Controller {
 
     public void createMember() {
         ui.printMessage("Please enter the members full name: ");
-        ui.stringInput(); //avoid scanner bug
         String name = ui.stringInput();
 
         ui.printMessage("Please enter the members age: ");
         int age = ui.intInput();
         String ageRange = ageRange(age);
-        ui.stringInput(); //avoid scanner bug
 
         ui.printMessage("Is the member active(a) or passive(p)?");
         String input = ui.stringInput();
@@ -102,7 +100,6 @@ public class Controller {
             ui.disciplineMenu();
             int disciplineInput = ui.intInput();
             discipline = getDisciplines(disciplineInput);
-            ui.stringInput(); //avoid scanner bug
             ui.printMessage("do you want to add another discipline?");
             String addAnotherDiscipline = ui.stringInput();
             keepAdding = continueAddingDisciplines(addAnotherDiscipline, discipline);
@@ -161,9 +158,9 @@ public class Controller {
     }
 
     private void fullMemberList() {
-        /*Collections.sort(fh.getMemberList());
+        Collections.sort(fh.getMemberList());
 
-        // loops through ArrayList and prints info.
+        /*// loops through ArrayList and prints info.
         for (Member member : fh.getMemberList()){
             ui.printMessage(member.toString());
         }*/

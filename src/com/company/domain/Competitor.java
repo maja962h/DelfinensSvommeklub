@@ -1,5 +1,7 @@
 package com.company.domain;
 
+import com.company.domain.Member;
+
 public class Competitor extends Member {
 
     private String discipline;
@@ -7,8 +9,6 @@ public class Competitor extends Member {
     private boolean doesBreast = false;
     private boolean doesButterfly = false;
     private boolean doesBack = false;
-
-
 
     public Competitor(String name, int age, String ageRange, String activeStatus, String competitiveStatus, String discipline){
         super(name, age, ageRange, activeStatus, competitiveStatus);

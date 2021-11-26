@@ -60,12 +60,12 @@ public class UserInterface {
     }
 
 
-    public String stringInput(){
-        return scanner.nextLine();
-    }
+    public String stringInput(){return scanner.nextLine();}
 
     public int intInput(){
-        return scanner.nextInt();
+        int input = scanner.nextInt();
+        scanner.nextLine(); //Scanner bug fix
+        return input;
     }
 
     public void printArray(List list){

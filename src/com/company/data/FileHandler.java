@@ -17,6 +17,7 @@ public class FileHandler implements Database{
         Member member = new Member(name, age, ageRange, activeStatus, competitiveStatus);
         memberList.add(member);
     } */
+
     public void addNewMember(Member member){
         memberList.add(member);
     }
@@ -31,9 +32,9 @@ public class FileHandler implements Database{
             FileWriter fileWriter = new FileWriter(file, true);
 
             for(Member member : memberList){
-                fileWriter.append(member.getName() + " ");
-                fileWriter.append(member.getAgeRange() + " ");
-                fileWriter.append(member.getActiveStatus() + " ");
+                fileWriter.append(member.getName() + ";");
+                fileWriter.append(member.getAgeRange() + ";");
+                fileWriter.append(member.getActiveStatus() + ";");
                 fileWriter.append(member.getCompetitiveStatus());
                 fileWriter.append("\n");
             }
@@ -53,9 +54,9 @@ public class FileHandler implements Database{
             FileWriter fileWriter = new FileWriter(file, true);
 
             for(Member member : competitors){
-                fileWriter.append(member.getName() + " ");
-                fileWriter.append(member.getAgeRange() + " ");
-                fileWriter.append(member.getActiveStatus() + " ");
+                fileWriter.append(member.getName() + ";");
+                fileWriter.append(member.getAgeRange() + ";");
+                fileWriter.append(member.getActiveStatus() + ";");
                 fileWriter.append(member.getCompetitiveStatus());
                 fileWriter.append("\n");
             }
@@ -73,7 +74,7 @@ public class FileHandler implements Database{
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                String[] test = data.split(" ");
+                String[] test = data.split(";");
                 Member member = new Member(test[0], test[1], test[2], test[3]);
                 memberList.add(member);
             }
