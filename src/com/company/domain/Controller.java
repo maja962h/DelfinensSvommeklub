@@ -100,7 +100,7 @@ public class Controller {
             ui.disciplineMenu();
             int disciplineInput = ui.intInput();
             discipline = getDisciplines(disciplineInput);
-            ui.printMessage("do you want to add another discipline?");
+            ui.printMessage("do you want to add another discipline? yes(y) or no(n)");
             String addAnotherDiscipline = ui.stringInput();
             keepAdding = continueAddingDisciplines(addAnotherDiscipline, discipline);
         }

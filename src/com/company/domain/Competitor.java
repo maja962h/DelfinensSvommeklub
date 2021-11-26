@@ -1,7 +1,5 @@
 package com.company.domain;
 
-import com.company.domain.Member;
-
 public class Competitor extends Member {
 
     private String discipline;
@@ -13,17 +11,6 @@ public class Competitor extends Member {
     public Competitor(String name, int age, String ageRange, String activeStatus, String competitiveStatus, String discipline){
         super(name, age, ageRange, activeStatus, competitiveStatus);
         this.discipline = discipline;
-    }
-
-    public void getCompetetorsSwimStatus(){
-        System.out.println("Does this person do crawl? " + doesCrawl);
-        System.out.println("Does this person do breast? " + doesBreast);
-        System.out.println("Does this person do butterfly? " + doesButterfly);
-        System.out.println("Does this person do crawl? " + doesCrawl);
-    }
-
-    public void changeCrawl(){
-        doesCrawl = !doesCrawl;
     }
 
     public void setDiscipline(String discipline) {

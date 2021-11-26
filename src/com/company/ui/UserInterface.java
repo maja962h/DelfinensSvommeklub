@@ -49,18 +49,17 @@ public class UserInterface {
                 """);
     }
 
-
     public void printMessage(String message){
         System.out.println(message);
     }
-
 
     public void printError(){
         System.out.println("The input was invalid, please try again.");
     }
 
-
-    public String stringInput(){return scanner.nextLine();}
+    public String stringInput(){
+        return scanner.nextLine();
+    }
 
     public int intInput(){
         int input = scanner.nextInt();
