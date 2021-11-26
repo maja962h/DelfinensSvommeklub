@@ -202,7 +202,12 @@ public class Controller {
     }
 
     public boolean continueAddingDisciplines(String input, String discipline) {
-        return input.equals("y");
+        if(input.equals("y")){
+            return true;
+        }else if(input.equals("n")){
+            return false;
+        }else
+        return false;
     }
 
 
