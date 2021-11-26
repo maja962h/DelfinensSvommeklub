@@ -11,7 +11,7 @@ public class FileHandler implements Database{
 
     private ArrayList<Member> memberList = new ArrayList<>();
     private ArrayList<Competitor> competitors = new ArrayList<>();
-    private ArrayList<User> users = new ArrayList<>();
+    private ArrayList<User> users = new ArrayList<>(); //TODO: do we need an arraylist or???
 
     /*public void addNewMember(String name, int age, String ageRange, String activeStatus, String competitiveStatus){
         Member member = new Member(name, age, ageRange, activeStatus, competitiveStatus);
@@ -128,11 +128,6 @@ public class FileHandler implements Database{
 
     @Override
     public User findUser(String name, String password) {
-        for (User user : users){
-            if(user.getName().equals(name) && user.getPassword().equals(password)){
-                return user;
-            }
-        }
         return null;
     }
 }
