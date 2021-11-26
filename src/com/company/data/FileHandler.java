@@ -1,16 +1,17 @@
 package com.company.data;
 import com.company.domain.Competitor;
 import com.company.domain.Member;
+import com.company.domain.User;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class FileHandler {
+public class FileHandler implements Database{
 
     private ArrayList<Member> memberList = new ArrayList<>();
     private ArrayList<Competitor> competitors = new ArrayList<>();
-
+    private ArrayList<User> users = new ArrayList<>();
 
     /*public void addNewMember(String name, int age, String ageRange, String activeStatus, String competitiveStatus){
         Member member = new Member(name, age, ageRange, activeStatus, competitiveStatus);
@@ -85,7 +86,7 @@ public class FileHandler {
         return null;
     }
 
-    // Turns arraylist into string so it can be printed to console.
+    // Turns arraylist into string, so it can be printed to console.
     public String makeStringMember(){
 
         //Initializing a StringBuilder object.
@@ -121,5 +122,15 @@ public class FileHandler {
 
     public void addNewCompetitor(Competitor competitor){
         competitors.add(competitor);
+    }
+
+    @Override
+    public User findUser(String name, String password) {
+        for (User user : users){
+            if(user.getName().equals(name) && user.getPassword().equals(password)){
+                return user;
+            }
+        }
+        return null;
     }
 }
