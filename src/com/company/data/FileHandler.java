@@ -127,6 +127,7 @@ public class FileHandler implements Database{
     }
 
     @Override
+    //TODO: Güler laver denne metode!
     public User findUser(String name, String password) {
         return null;
     }
