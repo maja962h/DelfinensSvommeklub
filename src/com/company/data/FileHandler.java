@@ -53,11 +53,12 @@ public class FileHandler implements Database{
         try{
             FileWriter fileWriter = new FileWriter(file, true);
 
-            for(Member member : competitors){
-                fileWriter.append(member.getName() + ";");
-                fileWriter.append(member.getAgeRange() + ";");
-                fileWriter.append(member.getActiveStatus() + ";");
-                fileWriter.append(member.getCompetitiveStatus());
+            for(Competitor competitor : competitors){
+                fileWriter.append(competitor.getName() + ";");
+                fileWriter.append(competitor.getAgeRange() + ";");
+                fileWriter.append(competitor.getActiveStatus() + ";");
+                fileWriter.append(competitor.getCompetitiveStatus() + ";");
+                fileWriter.append(competitor.getDiscipline());
                 fileWriter.append("\n");
             }
             fileWriter.close();
