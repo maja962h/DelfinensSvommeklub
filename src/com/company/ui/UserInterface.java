@@ -34,8 +34,9 @@ public class UserInterface {
         printMessage("""
                 Which list would you like to view?
                 (1) Full member list.
-                (2) Junior member list.
-                (3) Senior memberList.
+                (2) Full competitor list.
+                (3) Junior member list.
+                (4) Senior memberList.
                 """);
     }
 
@@ -43,8 +44,8 @@ public class UserInterface {
         printMessage("""
                 Choose which disciplines you want:
                 (1) Butterfly.
-                (2) Freestyle.
-                (3) Backstroke.
+                (2) Crawl.
+                (3) Back crawl.
                 (4) Breaststroke.
                 """);
     }

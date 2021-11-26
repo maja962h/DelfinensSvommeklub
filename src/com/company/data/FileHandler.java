@@ -66,11 +66,10 @@ public class FileHandler implements Database{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    public ArrayList<Member> readFile(){
-        File myObj = new File("data/members.txt");
+    public ArrayList<Member> readFile(String file){
+        File myObj = new File(file);
         try {
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
@@ -89,13 +88,13 @@ public class FileHandler implements Database{
     }
 
     // Turns arraylist into string, so it can be printed to console.
-    public String makeStringMember(){
+    public String makeStringMember(String file){
 
         //Initializing a StringBuilder object.
         StringBuilder stringBuilder = new StringBuilder();
 
         //Loops through the list of members.
-        for (Member member : readFile()) {
+        for (Member member : readFile(file)) {
 
             stringBuilder.append(member.getName()).append(" ");
 

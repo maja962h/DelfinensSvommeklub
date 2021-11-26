@@ -117,8 +117,9 @@ public class Controller {
 
         switch (listInput) {
             case 1 -> fullMemberList();
-            case 2 -> juniorMemberList();
-            case 3 -> seniorMemberList();
+            case 2 -> fullCompetitorList();
+            case 3 -> juniorMemberList();
+            case 4 -> seniorMemberList();
             default -> ui.printError();
         }
     }
@@ -164,7 +165,12 @@ public class Controller {
         for (Member member : fh.getMemberList()){
             ui.printMessage(member.toString());
         }*/
-        ui.printMessage(fh.makeStringMember());
+        ui.printMessage(fh.makeStringMember("data/members.txt"));
+    }
+
+    private void fullCompetitorList() {
+
+        ui.printMessage(fh.makeStringMember("data/competitors.txt"));
     }
 
     private void juniorMemberList() {
