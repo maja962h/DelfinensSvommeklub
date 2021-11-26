@@ -32,6 +32,9 @@ public class Member implements Comparable{
         this.competitiveStatus = competitiveStatus;
     }
 
+    public Member(){
+
+    }
 
     public String getAgeRange() {
         return ageRange;
