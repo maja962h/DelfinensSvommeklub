@@ -1,0 +1,3 @@
+Kenneth;1234;admin
+Chris;9876;cashier
+Maja;5050;trainer

@@ -11,7 +11,7 @@ public class FileHandler implements Database{
 
     private ArrayList<Member> memberList = new ArrayList<>();
     private ArrayList<Competitor> competitors = new ArrayList<>();
-    private ArrayList<User> users = new ArrayList<>(); //TODO: do we need an arraylist or???
+    private ArrayList<User> users = new ArrayList<>();
 
     /*public void addNewMember(String name, int age, String ageRange, String activeStatus, String competitiveStatus){
         Member member = new Member(name, age, ageRange, activeStatus, competitiveStatus);
@@ -87,6 +87,28 @@ public class FileHandler implements Database{
         return null;
     }
 
+    public boolean authenticated(String name, String password, String role){
+        boolean isAuthenticated = false;
+
+        File file = new File("data/users.txt");
+
+        try{
+            Scanner myReader = new Scanner(file);
+
+            while(myReader.hasNextLine()){
+                String line = myReader.nextLine();
+                String[] values = line.split(";");
+
+                if(values[0].equals(name) && values[1].equals(password) && values[2].equals(role)){
+                    isAuthenticated = true;
+                }
+            }
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+        return isAuthenticated;
+    }
+
     // Turns arraylist into string, so it can be printed to console.
     public String makeStringMember(String file){
 
@@ -126,8 +148,12 @@ public class FileHandler implements Database{
     }
 
     @Override
-    //TODO: Güler laver denne metode!
     public User findUser(String name, String password) {
+        for (User user: users) {
+            if(user.getName().equals(name) && user.getPassword().equals(password)){
+                return user;
+            }
+        }
         return null;
     }
 }
