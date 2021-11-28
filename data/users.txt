@@ -1,3 +1,4 @@
-Kenneth;1234;admin
-Chris;9876;cashier
+Güler;2525;admin
+Kenneth;1234;cashier
+Chris;9876;trainer
 Maja;5050;trainer
