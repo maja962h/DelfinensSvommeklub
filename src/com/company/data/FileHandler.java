@@ -94,8 +94,4 @@ public class FileHandler{
         return isAuthenticated;
     }
 
-    // Turns arraylist into string, so it can be printed to console.
-
-
-
 }

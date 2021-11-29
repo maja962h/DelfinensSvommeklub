@@ -9,7 +9,6 @@ public class Member implements Comparable{
     protected String activeStatus; //active or passive?
     protected String ageRange; //junior or senior?
     protected String competitiveStatus; //competitive or non-competitive?
-    private FileHandler fh = new FileHandler();
 
 
 
@@ -65,26 +64,6 @@ public class Member implements Comparable{
 
     public void setCompetitiveStatus(String competitiveStatus) {
         this.competitiveStatus = competitiveStatus;
-    }
-
-    public String makeStringMember(String file){
-
-        //Initializing a StringBuilder object.
-        StringBuilder stringBuilder = new StringBuilder();
-
-        //Loops through the list of members.
-        for (Member member : fh.readFile(file)) {
-
-            stringBuilder.append(member.getName()).append(" ");
-
-            stringBuilder.append(member.getAgeRange()).append(" ");
-
-            stringBuilder.append(member.getActiveStatus()).append(" ");
-
-            stringBuilder.append(member.getCompetitiveStatus()).append("\n");
-
-        }
-        return stringBuilder.toString();
     }
 
 

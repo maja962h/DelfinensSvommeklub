@@ -12,7 +12,6 @@ public class MemberController {
     UserInterface ui = new UserInterface();
     FileHandler fh = new FileHandler();
     Database dc = new Database();
-    Member member = new Member();
 
     public void createMember() {
         ui.printMessage("Please enter the members full name: ");
@@ -111,13 +110,11 @@ public class MemberController {
 
     private void fullMemberList() {
         Collections.sort(dc.getMemberList());
-
-        ui.printMessage(member.makeStringMember("data/members.txt"));
+        ui.printMessage(makeStringMember("data/members.txt"));
     }
 
     private void fullCompetitorList() {
-
-        ui.printMessage(member.makeStringMember("data/competitors.txt"));
+        ui.printMessage(makeStringMember("data/competitors.txt"));
     }
 
     private void juniorMemberList() {
@@ -161,6 +158,26 @@ public class MemberController {
             return false;
         }else
             return false;
+    }
+
+    public String makeStringMember(String file){
+
+        //Initializing a StringBuilder object.
+        StringBuilder stringBuilder = new StringBuilder();
+
+        //Loops through the list of members.
+        for (Member member : fh.readFile(file)) {
+
+            stringBuilder.append(member.getName()).append(" ");
+
+            stringBuilder.append(member.getAgeRange()).append(" ");
+
+            stringBuilder.append(member.getActiveStatus()).append(" ");
+
+            stringBuilder.append(member.getCompetitiveStatus()).append("\n");
+
+        }
+        return stringBuilder.toString();
     }
 
 
