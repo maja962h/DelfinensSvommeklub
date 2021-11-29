@@ -125,23 +125,32 @@ public class MemberController {
 
         switch (listInput) {
             case 1 -> fullMemberList();
-            case 2 -> fullCompetitorList();
-            case 3 -> juniorMemberList();
-            case 4 -> seniorMemberList();
+            //case 2 -> fullCompetitorList();
+            //case 3 -> juniorMemberList();
+            //case 4 -> seniorMemberList();
             default -> ui.printError();
         }
     }
 
     private void fullMemberList() {
-      ui.printMessage(member.makeStringMember("data/members.txt"));
+      //ui.printMessage(member.makeStringMember("data/members.txt"));
+
+        Collections.sort(fh.getMemberList());
+
+        /*// loops through ArrayList and prints info.
+        for (Member member : fh.getMemberList()){
+            ui.printMessage(member.toString());
+        }*/
+        ui.printMessage(member.makeStringMember());
     }
 
-    private void fullCompetitorList() {
+
+    /*private void fullCompetitorList() {
 
         ui.printMessage(member.makeStringMember("data/competitors.txt"));
-    }
+    }*/
 
-    private void juniorMemberList() {
+    /*private void juniorMemberList() {
         Collections.sort(db.getMemberList());
 
         for (Member member : db.getMemberList()) {
@@ -149,9 +158,9 @@ public class MemberController {
                 ui.printMessage(member.toString());
             }
         }
-    }
+    }*/
 
-    public void seniorMemberList() {
+    /*public void seniorMemberList() {
         Collections.sort(db.getMemberList());
 
         for (Member member : db.getMemberList()) {
@@ -159,6 +168,6 @@ public class MemberController {
                 ui.printMessage(member.toString());
             }
         }
-    }
+    }*/
 
 }

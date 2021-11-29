@@ -67,13 +67,13 @@ public class Member implements Comparable{
         this.competitiveStatus = competitiveStatus;
     }
 
-    public String makeStringMember(String file){
+    public String makeStringMember() {
 
         //Initializing a StringBuilder object.
         StringBuilder stringBuilder = new StringBuilder();
 
         //Loops through the list of members.
-        for (Member member : fh.readFile(file)) {
+        for (Member member : fh.readFile()) {
 
             stringBuilder.append(member.getName()).append(" ");
 
@@ -88,9 +88,10 @@ public class Member implements Comparable{
     }
 
 
+
     @Override
     public String toString() {
-        return name + ": " + age + " år, " + ageRange + ". " + activeStatus + " " + competitiveStatus + "\n";
+        return name + ": " + ageRange + ". " + activeStatus + " " + competitiveStatus + "\n";
     }
 
     @Override

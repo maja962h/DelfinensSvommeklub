@@ -11,6 +11,10 @@ public class FileHandler{
     private ArrayList<Competitor> competitors = new ArrayList<>();
 
 
+    public ArrayList<Member> getMemberList() {
+        return memberList;
+    }
+
     public void saveMember(){
         File file = new File("data/members.txt");
 
@@ -53,8 +57,8 @@ public class FileHandler{
         }
     }
 
-    public ArrayList<Member> readFile(String file){
-        File myObj = new File(file);
+    public ArrayList<Member> readFile(){
+        File myObj = new File("data/members.txt");
         try {
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
