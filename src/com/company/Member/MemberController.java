@@ -11,7 +11,7 @@ public class MemberController {
 
     UserInterface ui = new UserInterface();
     FileHandler fh = new FileHandler();
-    Database dc = new Database();
+    Database db = new Database();
     Member member = new Member();
 
     public void createMember() {
@@ -28,7 +28,7 @@ public class MemberController {
         Member member = new Member(name, age, ageRange);
         isActiveOrPassive(member, input);
 
-        dc.addNewMember(member);
+        db.addNewMember(member);
         fh.saveMember();
     }
 
@@ -80,64 +80,9 @@ public class MemberController {
             keepAdding = continueAddingDisciplines(addAnotherDiscipline, discipline);
         }
         Competitor competitor = new Competitor(member.getName(), member.getAge(), member.getAgeRange(), member.getActiveStatus(), member.competitiveStatus, discipline);
-        dc.addNewCompetitor(competitor);
+        db.addNewCompetitor(competitor);
         fh.saveCompetitor();
         //TODO: can only add one discipline, this needs to be fixed.
-    }
-
-    // You are able to view different member lists
-    public void showMemberList() {
-        ui.memberListMenu();
-        int listInput = ui.intInput();
-
-        switch (listInput) {
-            case 1 -> fullMemberList();
-            case 2 -> fullCompetitorList();
-            case 3 -> juniorMemberList();
-            case 4 -> seniorMemberList();
-            default -> ui.printError();
-        }
-    }
-
-    private String ageRange(int age) {
-        String ageRange = "";
-        if (age < 18) {
-            ageRange = "Junior";
-        } else if (age >= 18) {
-            ageRange = "Senior";
-        }
-        return ageRange;
-    }
-
-    private void fullMemberList() {
-        Collections.sort(dc.getMemberList());
-
-        ui.printMessage(member.makeStringMember("data/members.txt"));
-    }
-
-    private void fullCompetitorList() {
-
-        ui.printMessage(member.makeStringMember("data/competitors.txt"));
-    }
-
-    private void juniorMemberList() {
-        Collections.sort(dc.getMemberList());
-
-        for (Member member : dc.getMemberList()) {
-            if (member.getAgeRange().equals("Junior")) {
-                ui.printMessage(member.toString());
-            }
-        }
-    }
-
-    public void seniorMemberList() {
-        Collections.sort(dc.getMemberList());
-
-        for (Member member : dc.getMemberList()) {
-            if (member.getAgeRange().equals("Senior")) {
-                ui.printMessage(member.toString());
-            }
-        }
     }
 
     public String getDisciplines(int input) {
@@ -163,5 +108,57 @@ public class MemberController {
             return false;
     }
 
+    private String ageRange(int age) {
+        String ageRange = "";
+        if (age < 18) {
+            ageRange = "Junior";
+        } else if (age >= 18) {
+            ageRange = "Senior";
+        }
+        return ageRange;
+    }
+
+    // You are able to view different member lists
+    public void showMemberList() {
+        ui.memberListMenu();
+        int listInput = ui.intInput();
+
+        switch (listInput) {
+            case 1 -> fullMemberList();
+            case 2 -> fullCompetitorList();
+            case 3 -> juniorMemberList();
+            case 4 -> seniorMemberList();
+            default -> ui.printError();
+        }
+    }
+
+    private void fullMemberList() {
+      ui.printMessage(member.makeStringMember("data/members.txt"));
+    }
+
+    private void fullCompetitorList() {
+
+        ui.printMessage(member.makeStringMember("data/competitors.txt"));
+    }
+
+    private void juniorMemberList() {
+        Collections.sort(db.getMemberList());
+
+        for (Member member : db.getMemberList()) {
+            if (member.getAgeRange().equals("Junior")) {
+                ui.printMessage(member.toString());
+            }
+        }
+    }
+
+    public void seniorMemberList() {
+        Collections.sort(db.getMemberList());
+
+        for (Member member : db.getMemberList()) {
+            if (member.getAgeRange().equals("Senior")) {
+                ui.printMessage(member.toString());
+            }
+        }
+    }
 
 }
