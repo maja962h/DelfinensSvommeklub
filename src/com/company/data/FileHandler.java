@@ -1,30 +1,16 @@
 package com.company.data;
 import com.company.domain.Competitor;
-import com.company.domain.Member;
-import com.company.domain.User;
-
+import com.company.Member.Member;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class FileHandler implements Database{
+public class FileHandler{
 
     private ArrayList<Member> memberList = new ArrayList<>();
     private ArrayList<Competitor> competitors = new ArrayList<>();
-    private ArrayList<User> users = new ArrayList<>();
 
-    /*public void addNewMember(String name, int age, String ageRange, String activeStatus, String competitiveStatus){
-        Member member = new Member(name, age, ageRange, activeStatus, competitiveStatus);
-        memberList.add(member);
-    } */
 
-    public void addNewMember(Member member){
-        memberList.add(member);
-    }
-
-    public void addOneMember(Member member){
-        memberList.add((member));
-    }
     public void saveMember(){
         File file = new File("data/members.txt");
 
@@ -57,7 +43,6 @@ public class FileHandler implements Database{
                 fileWriter.append(competitor.getName() + ";");
                 fileWriter.append(competitor.getAgeRange() + ";");
                 fileWriter.append(competitor.getActiveStatus() + ";");
-                fileWriter.append(competitor.getCompetitiveStatus() + ";");
                 fileWriter.append(competitor.getDiscipline());
                 fileWriter.append("\n");
             }
@@ -110,50 +95,7 @@ public class FileHandler implements Database{
     }
 
     // Turns arraylist into string, so it can be printed to console.
-    public String makeStringMember(String file){
-
-        //Initializing a StringBuilder object.
-        StringBuilder stringBuilder = new StringBuilder();
-
-        //Loops through the list of members.
-        for (Member member : readFile(file)) {
-
-            stringBuilder.append(member.getName()).append(" ");
-
-            stringBuilder.append(member.getAgeRange()).append(" ");
-
-            stringBuilder.append(member.getActiveStatus()).append(" ");
-
-            stringBuilder.append(member.getCompetitiveStatus()).append("\n");
-
-        }
-        return stringBuilder.toString();
-    }
 
 
-    public ArrayList<Member> getMemberList() {
-        return memberList;
-    }
 
-    public ArrayList<Competitor> getCompetitors() {
-        return competitors;
-    }
-    /*public void addNewCompetitor(String name, int age, String ageRange, String activeStatus, String competitiveStatus, String disciplines){
-        Competitor competitor = new Competitor(name, age, ageRange, activeStatus, competitiveStatus, disciplines);
-        competitors.add(competitor);
-    }*/
-
-    public void addNewCompetitor(Competitor competitor){
-        competitors.add(competitor);
-    }
-
-    @Override
-    public User findUser(String name, String password) {
-        for (User user: users) {
-            if(user.getName().equals(name) && user.getPassword().equals(password)){
-                return user;
-            }
-        }
-        return null;
-    }
 }

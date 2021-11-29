@@ -1,5 +1,7 @@
 package com.company.domain;
 
+import com.company.Member.Member;
+
 public class Competitor extends Member {
 
     private String discipline;
