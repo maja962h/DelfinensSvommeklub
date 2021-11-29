@@ -133,7 +133,7 @@ public class MemberController {
     }
 
     private void fullMemberList() {
-      ui.printMessage(member.makeStringMember("data/members.txt"));
+        ui.printMessage(member.makeStringMember("data/members.txt"));
     }
 
     private void fullCompetitorList() {
