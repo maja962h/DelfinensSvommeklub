@@ -11,7 +11,7 @@ public class MemberController {
 
     UserInterface ui = new UserInterface();
     FileHandler fh = new FileHandler();
-    Database dc = new Database();
+    Database db = new Database();
 
     public void createMember() {
         ui.printMessage("Please enter the members full name: ");
@@ -27,7 +27,7 @@ public class MemberController {
         Member member = new Member(name, age, ageRange);
         isActiveOrPassive(member, input);
 
-        dc.addNewMember(member);
+        db.addNewMember(member);
         fh.saveMember();
     }
 
@@ -79,7 +79,7 @@ public class MemberController {
             keepAdding = continueAddingDisciplines(addAnotherDiscipline, discipline);
         }
         Competitor competitor = new Competitor(member.getName(), member.getAge(), member.getAgeRange(), member.getActiveStatus(), member.competitiveStatus, discipline);
-        dc.addNewCompetitor(competitor);
+        db.addNewCompetitor(competitor);
         fh.saveCompetitor();
         //TODO: can only add one discipline, this needs to be fixed.
     }
@@ -109,7 +109,7 @@ public class MemberController {
     }
 
     private void fullMemberList() {
-        Collections.sort(dc.getMemberList());
+        Collections.sort(db.getMemberList());
         ui.printMessage(makeStringMember("data/members.txt"));
     }
 
@@ -118,9 +118,9 @@ public class MemberController {
     }
 
     private void juniorMemberList() {
-        Collections.sort(dc.getMemberList());
+        Collections.sort(db.getMemberList());
 
-        for (Member member : dc.getMemberList()) {
+        for (Member member : db.getMemberList()) {
             if (member.getAgeRange().equals("Junior")) {
                 ui.printMessage(member.toString());
             }
@@ -128,9 +128,9 @@ public class MemberController {
     }
 
     public void seniorMemberList() {
-        Collections.sort(dc.getMemberList());
+        Collections.sort(db.getMemberList());
 
-        for (Member member : dc.getMemberList()) {
+        for (Member member : db.getMemberList()) {
             if (member.getAgeRange().equals("Senior")) {
                 ui.printMessage(member.toString());
             }
