@@ -37,6 +37,8 @@ public class FileHandler{
 
     }
 
+    // En lille test
+
     public void saveCompetitor(){
         File file = new File("data/competitors.txt");
 
